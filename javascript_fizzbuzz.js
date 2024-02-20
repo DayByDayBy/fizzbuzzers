@@ -8,3 +8,6 @@ for (let i = 1; i <= 100; i++) {
     } else { console.log(i)
     }
 }
+
+
+// node javascript_fizzbuzz.js to run, or wrap it in some HTML, swap out the console log approach for html elements
