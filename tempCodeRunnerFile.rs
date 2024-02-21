@@ -1,15 +1,12 @@
 fn main(){
-
     for i in 0..=100 {
-        if i % 5 == 0 && i % 3 == 0 {
+        if i % 3 == 0 && i % 5 == 0 {
             println!("FizzBuzz");
-        } else if i % 3{
+        } else if i % 3 ==0 {
             println!("Fizz");
-        } else if i % 5{
+        } else if i % 5 == 0{
             println!("Buzz");
-        } else println!("{}",i);
+        } else { println!("{}", i) }
     }
-
-
 }
 
