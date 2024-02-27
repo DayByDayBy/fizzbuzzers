@@ -15,3 +15,4 @@ Python
 Lua
 Rockstar
 Lisp
+COBOL
