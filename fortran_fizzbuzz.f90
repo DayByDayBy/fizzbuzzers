@@ -1,6 +1,6 @@
 program fizzbuzz
     
-    implicit none   ! meaning vairables must be explicit
+    implicit none   ! meaning variables must be explicit
     integer :: i    ! decalres variable of type integer, of name i
    
     
