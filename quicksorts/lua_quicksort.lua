@@ -17,8 +17,7 @@ function quicksort(data)
                 table.insert(right, data[i])
             end
         end
-
-
+        
         local sorted_left = quicksort(left)   -- recursive call on left sub-table
         local sorted_right = quicksort(right) -- recursive call on right sub-table
         table.insert(sorted_left, pivot)      -- inserting left list and pivot (pivot will be next largest, and will be reassigned on next iteration)
