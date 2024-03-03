@@ -29,7 +29,6 @@ main =  do
 
 
 
-
     -- main pain points for ths one were figuring out how to get split 
     -- to work (dependency issues, needed to install split despite having split)
     -- and figuring out how to do list comprehension in haskell - tbh it's more 
