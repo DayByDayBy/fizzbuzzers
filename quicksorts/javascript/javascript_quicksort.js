@@ -29,6 +29,7 @@ function sortDataFromFile() {
     const sortedData = quicksort(dataArray);
 
     console.log("sorted, m8: ", sortedData);
+    return sortedData
   });
 }
 
