@@ -4,13 +4,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quicksort</title>
     <script src="javascript_quicksort.js">    </script>
+    <style>
+
+        body{
+            background-color: hsl(180, 20%, 80%);
+        }
+        .main-box {
+            background-color: hsl(180, 25%, 50%, .25);
+            display: grid;
+            grid-template-columns: 3, 1fr;
+            grid-auto-rows: 6fr;
+            align-content: center;
+            justify-content: center;  
+            margin: 1rem; 
+            border-radius: 1rem;       
+        }
+        .box-item{
+            border-style: black solid 1px;
+            border-radius: 1rem;
+          }
+
+        h1{
+            text-align: right;
+            padding: 1rem;
+        }
+        p{
+            text-align: center;
+        }
+        #sortedResult{
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
 
 
-    <h1>quicksort</h1>
+    <h1 class="box-item">quicksort</h1>
 
    
 
@@ -22,15 +53,15 @@
                 return parseInt(num.trim());
             });
             var sortedNumbers = quicksort(numbers);
-            document.getElementById("sortedResult").innerText = "your sorted numbers:  " + sortedNumbers.join(', ');
+            document.getElementById("sortedResult").innerText = '\n' + "your sorted numbers:" + '\n\n' + sortedNumbers.join(', ');
         }
     </script>
-
-    <p> enter a list of numbers, separated by commas: </p>
-    <input type="text" id="numberInput" />
-    <button onclick="sortNumbers()">sort list</button>
-    <div id="sortedResult"></div>
-    
+<div class="main-box">
+    <p class="box-item">enter some numbers, separated by commas:</p>
+    <input class="box-item" type="text" id="numberInput" />
+    <button class="box-item" onclick="sortNumbers()">sort list</button>
+    <div id="sortedResult" class="box-item"></div>
+</div>
 
 
 
