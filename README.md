@@ -1,7 +1,7 @@
 # fizzbuzzers
 
 
-a wee collection of fizzbuzz scripts and other classic code problems, for a quick look at of the syntax of a few different languages
+a wee collection of fizzbuzz scripts and other classic code problem for a quick look at the syntax of different languages
 
 list includes:
 
