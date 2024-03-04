@@ -1,27 +1,22 @@
-<!-- <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quicksort</title>
-    <script src="./javascript_quicksort.js">    </script>
+    <script src="javascript_quicksort.js">    </script>
 </head>
 
 <body>
 
 
 
-
     <h1>quicksort</h1>
-    
-    <p> enter a list of numbers, separated by commas: </p>
-    <input type="text" id="numberInput" />
-    <button onclick="sortNumbers()">sort list</button>
-    <div id="sortedResult"></div>
-    
+
+   
 
 
     <script>
-        function sortNumbers() {
+        function sortNumbers(input) {
             var input = document.getElementById("numberInput").value;
             var numbers = input.split(",").map(function(num){
                 return parseInt(num.trim());
@@ -30,6 +25,12 @@
             document.getElementById("sortedResult").innerText = "your sorted numbers:  " + sortedNumbers.join(', ');
         }
     </script>
+
+    <p> enter a list of numbers, separated by commas: </p>
+    <input type="text" id="numberInput" />
+    <button onclick="sortNumbers()">sort list</button>
+    <div id="sortedResult"></div>
+    
 
 
 
@@ -52,4 +53,4 @@
 
 
 </body>
-</html> -->
+</html>

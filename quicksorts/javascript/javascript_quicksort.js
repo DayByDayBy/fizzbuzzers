@@ -14,7 +14,7 @@ function quicksort(data) {
         right.push(data[i]);
       }
     }
-    return [...quicksort(left), ...quicksort(right)];
+    return [...quicksort(left),  pivot, ...quicksort(right)];
   }
 }
 
@@ -27,9 +27,9 @@ function sortDataFromFile() {
     }
     const dataArray = data.split(",").map(element => parseInt(element.trim(), 10));
     const sortedData = quicksort(dataArray);
+    
 
     console.log("sorted, m8: ", sortedData);
-    return sortedData
   });
 }
 
