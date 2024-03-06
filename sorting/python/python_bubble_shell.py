@@ -31,6 +31,6 @@ def generate_gap_sequence(n):
         gap = gap//2
 
 shellSorted  = shell_sort(data)
-print(shellSorted[2][:40])
-print(f" - items sorted by 'shellsort' method: ", shellSorted[0], "   (list truncated for legibility)")
+print(f"sorted list (truncated for CLI legibility): \n\n", shellSorted[2][:40], '\n')
+print(f" - items sorted by 'shellsort' method: ", shellSorted[0])
 print(f" - time taken: ", shellSorted[1], "seconds\n")
