@@ -1,4 +1,3 @@
-os.chdir("/Users/gboa/Documents/fizzbuzzers-and-more/sorting/lua")
 local file, errorMsg = io.open("../data.txt", "r")
 if not file then
     print("Error opening file:", errorMsg)
