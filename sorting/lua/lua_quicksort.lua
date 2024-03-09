@@ -2,14 +2,15 @@ function quicksort(data)
 
 -- length checking in lua is achieved with "#table_name" syntax.
 --  lua is all tables, so it works for what would be lists/arrays/etc in other languages
---  list/table of 1 is alreadcy sorted, so "return data"
+--  list/table of 1 is already sorted, so "return data"
+
 
     if #data <= 1 then     
         return data       
     else
         local pivot = data[1]       -- lua is 1-indexed, hence not data[0] here
-        local left = {}             -- empty table initalized
-        local right = {}            -- empty table initalized
+        local left = {}             -- empty table initalised
+        local right = {}            -- empty table initalised
         for i = 2, #data do         -- second item (because 1-indexed), #data is length value 
             if data[i] < pivot then     -- standard quicksort comparison
                 table.insert(left, data[i])     -- table.insert() takes a destination table, index, and new value

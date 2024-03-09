@@ -7,7 +7,7 @@ def quicksort(data):
         right = [x for x in data[1:] if x >= pivot]
         return quicksort(left) + [pivot] + quicksort(right)
         
-data = [int(num) for num in open('data.txt').read().split(",")] 
+data = [int(num) for num in open('../data.txt').read().split(",")] 
 sorted_data = quicksort(data)
 print(sorted_data)
                 

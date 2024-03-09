@@ -8,7 +8,6 @@ try {
     console.error('error while reading file:', error);
 }
 
-
 function bubblesort(data){
     
     let n = data.length;
