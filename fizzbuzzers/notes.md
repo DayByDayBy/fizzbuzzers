@@ -10,9 +10,10 @@ maybe have a skim of euler, pick a few from there?
 
 (https://projecteuler.net/archives)
 
+- TDD, using tests as reference to build in ohher langauges instead of code?
 --------------------------------------------------------
 
-<(edit: 8 march)>
+8th march
 --
 have added sorting as a folder, willl work trhough a few of those, may also take one or more of the AoC problems and refactor once i ruin out of more basic problems to work through 
 
