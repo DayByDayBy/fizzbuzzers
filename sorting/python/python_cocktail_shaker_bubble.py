@@ -20,6 +20,7 @@ def cocktail_shaker_bubble(data):
                 data[i], data[i+1] = data[i+1], data[i]    
     end_time = time.process_time()
     time_taken_cocktail = end_time - start_time
+    
     return n, time_taken_cocktail, data    
                 
 shakerSorted = cocktail_shaker_bubble(data)
