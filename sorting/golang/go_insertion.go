@@ -9,8 +9,14 @@ import (
 
 
 func insertionSort(data []int) []int{
-	for i := 0; i = < len(data); i++{
-		
+	for _, i := range data{
+		j := i-1
+		for and j>=0 && data[j] > data[j+1] {
+			data[j], data[j+1] = data[j+1], data[j]
+			j -= 1
+		}
+
+	
 	}
 }
 
