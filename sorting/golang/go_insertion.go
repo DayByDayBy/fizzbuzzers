@@ -7,26 +7,20 @@ import (
 	"strings"
 )
 
-
-func insertionSort(data []int) []int{
-	for _, i := range data{
-		j := i-1
-		for and j>=0 && data[j] > data[j+1] {
+func insertionSort(data []int) []int {
+	for i, num := range data {
+		j := i - 1
+		for j >= 0 && data[j] > data[j+1] {
 			data[j], data[j+1] = data[j+1], data[j]
 			j -= 1
 		}
-
-	
 	}
 }
 
-
-
-
-func main(){
+func main() {
 	content, err := os.ReadFile("../data.txt")
-	if err != nil{
-		panic (err)
+	if err != nil {
+		panic(err)
 	}
 	strData := string(content)
 	strData = strings.TrimSpace(strData)
@@ -34,7 +28,7 @@ func main(){
 	var data []int
 	for _, strNum := range strNums {
 		num, err := strconv.Atoi(strNum)
-		if err != nil{
+		if err != nil {
 			panic(err)
 		}
 		data = append(data, num)
