@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CsharpFizzbuzz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bd924e1d87c5649d7e423f7cf7c8f1440ab700e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23f366364e2004c78c30c2c2c3b02aa02fad747d")]
 [assembly: System.Reflection.AssemblyProductAttribute("CsharpFizzbuzz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CsharpFizzbuzz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

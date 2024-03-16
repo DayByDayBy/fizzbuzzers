@@ -3,20 +3,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quicksort</title>
-    <script src="javascript_quicksort.js">    </script>
+    <script src=".*.js">  
+    </script>
     <style>
 
         body{
             background-color: hsl(180, 20%, 80%);
         }
-        .main-box {
+        .sort-box {
             background-color: hsl(180, 25%, 50%, .25);
             display: grid;
             grid-template-columns: 3, 1fr;
             grid-auto-rows: 6fr;
             align-content: center;
             justify-content: center;  
-            margin: 1rem; 
+            margin: 2rem 10rem; 
+            padding: 1rem;
             border-radius: 1rem;       
         }
         .box-item{
@@ -39,15 +41,10 @@
 
 <body>
 
-
-
     <h1 class="box-item">quicksort</h1>
 
-   
-
-
     <script>
-        function sortNumbers(input) {
+        function quickButton(input) {
             var input = document.getElementById("numberInput").value;
             var numbers = input.split(",").map(function(num){
                 return parseInt(num.trim());
@@ -55,23 +52,36 @@
             var sortedNumbers = quicksort(numbers);
             document.getElementById("sortedResult").innerText = '\n' + "your sorted numbers:" + '\n\n' + sortedNumbers.join(', ');
         }
+
+        function bubbleButton(input) {
+            var input = document.getElementById("numberInput").value;
+            var numbers = input.split(",").map(function(num){
+                return parseInt(num.trim());
+            });
+            var sortedNumbers = quicksort(numbers);
+            document.getElementById("sortedResult").innerText = '\n' + "your sorted numbers:" + '\n\n' + sortedNumbers.join(', ');
+        }      
+
     </script>
-<div class="main-box">
-    <p class="box-item">enter some numbers, separated by commas:</p>
+
+
+<p>enter some comma-separated numbers and click the button below to test an alogorithm</p>
+
+<!-- quicksort -->
+
+<div class="sort-box">
     <input class="box-item" type="text" id="numberInput" />
-    <button class="box-item" onclick="sortNumbers()">sort list</button>
+    <button class="box-item" onclick="quickButton()">quicksort</button>
     <div id="sortedResult" class="box-item"></div>
 </div>
 
+<!-- bubblesort -->
 
-
-
-
-
-
-
-
-
+<div class="sort-box">
+    <input class="box-item" type="text" id="numberInput" />
+    <button class="box-item" onclick="bubbleButton()">bubblesort</button>
+    <div id="sortedResult" class="box-item"></div>
+</div>
 
 
 
