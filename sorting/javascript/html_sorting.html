@@ -60,6 +60,15 @@
             });
             var sortedNumbers = quicksort(numbers);
             document.getElementById("sortedResult").innerText = '\n' + "your sorted numbers:" + '\n\n' + sortedNumbers.join(', ');
+        }    
+
+        function insertionButton(input) {
+            var input = document.getElementById("numberInput").value;
+            var numbers = input.split(",").map(function(num){
+                return parseInt(num.trim());
+            });
+            var sortedNumbers = insertionsort(numbers);
+            document.getElementById("sortedResult").innerText = '\n' + "your sorted numbers:" + '\n\n' + sortedNumbers.join(', ');
         }      
 
     </script>
@@ -83,6 +92,13 @@
     <div id="sortedResult" class="box-item"></div>
 </div>
 
+<!-- insertionsort -->
+
+<div class="sort-box">
+    <input class="box-item" type="text" id="numberInput" />
+    <button class="box-item" onclick="insertionButton()">insertionsort</button>
+    <div id="sortedResult" class="box-item"></div>
+</div>
 
 
 

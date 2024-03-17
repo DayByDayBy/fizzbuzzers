@@ -2,7 +2,7 @@ const fs = require('fs');
 const data = fs.readFileSync('../data.txt', 'utf8').split(',').map(Number);
 
 
-function insertion_sort(data){
+function insertionsort(data){
     for (let i = 0; i < data.length; i++){
         let j = i-1
         while (data[j] > data[j+1] && j >= 0){
@@ -14,5 +14,5 @@ function insertion_sort(data){
     }
     
 }
-insertion_sort(data);
+insertionsort(data);
 console.log(data);
