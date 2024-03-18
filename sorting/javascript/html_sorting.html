@@ -3,28 +3,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quicksort</title>
-    <script src=".*.js">  
-    </script>
+    <script src="javascript_quicksort.js">      </script>
+    <script src="javascript_insertionsort.js">      </script>
+    <script src="javascript_mergesort.js">      </script>
+    <script src="javascript_bubblesort.js">      </script>
+
+
     <style>
 
         body{
-            background-color: hsl(180, 20%, 80%);
+            background-color: #EED3D9;
         }
         .sort-box {
-            background-color: hsl(180, 25%, 50%, .25);
+            background-color: #CCD3CA;
             display: grid;
-            grid-template-columns: 3, 1fr;
+            grid-template-columns: 2fr 1fr 2fr;
             grid-auto-rows: 6fr;
             align-content: center;
             justify-content: center;  
             margin: 2rem 10rem; 
-            padding: 1rem;
+            padding: 2rem 2rem;
             border-radius: 1rem;       
         }
-        .box-item{
+        .box-item  {
             border-style: black solid 1px;
             border-radius: 1rem;
+            background-color: #f1e5ff;
+            padding: 1rem 1rem;
           }
+        .button{
+            background-color:#B5C0D0;
+            width: auto;
+        }
+        .title{
+            background-color: #F5E8DD;
+
+
+        }
+
 
         h1{
             text-align: right;
@@ -33,45 +49,22 @@
         p{
             text-align: center;
         }
+
         #sortedResult{
             text-align: center;
+            border-style: black solid 1px;
+            border-radius: 1rem;
         }
+
+
     </style>
 </head>
 
 <body>
 
-    <h1 class="box-item">quicksort</h1>
+    <h1 class="box-item title">some <br> sorting <br> algorithms</h1>
 
-    <script>
-        function quickButton(input) {
-            var input = document.getElementById("numberInput").value;
-            var numbers = input.split(",").map(function(num){
-                return parseInt(num.trim());
-            });
-            var sortedNumbers = quicksort(numbers);
-            document.getElementById("sortedResult").innerText = '\n' + "your sorted numbers:" + '\n\n' + sortedNumbers.join(', ');
-        }
-
-        function bubbleButton(input) {
-            var input = document.getElementById("numberInput").value;
-            var numbers = input.split(",").map(function(num){
-                return parseInt(num.trim());
-            });
-            var sortedNumbers = quicksort(numbers);
-            document.getElementById("sortedResult").innerText = '\n' + "your sorted numbers:" + '\n\n' + sortedNumbers.join(', ');
-        }    
-
-        function insertionButton(input) {
-            var input = document.getElementById("numberInput").value;
-            var numbers = input.split(",").map(function(num){
-                return parseInt(num.trim());
-            });
-            var sortedNumbers = insertionsort(numbers);
-            document.getElementById("sortedResult").innerText = '\n' + "your sorted numbers:" + '\n\n' + sortedNumbers.join(', ');
-        }      
-
-    </script>
+ 
 
 
 <p>enter some comma-separated numbers and click the button below to test an alogorithm</p>
@@ -79,35 +72,74 @@
 <!-- quicksort -->
 
 <div class="sort-box">
-    <input class="box-item" type="text" id="numberInput" />
-    <button class="box-item" onclick="quickButton()">quicksort</button>
+    <input class="box-item" type="text" id="quicksortInput" placeholder="add some numbers here" />
+    <button class="box-item button" onclick="quickButton()">quicksort</button>
     <div id="sortedResult" class="box-item"></div>
 </div>
 
 <!-- bubblesort -->
 
 <div class="sort-box">
-    <input class="box-item" type="text" id="numberInput" />
-    <button class="box-item" onclick="bubbleButton()">bubblesort</button>
+    <input class="box-item" type="text" id="bubblesortInput" placeholder="add some numbers here" />
+    <button class="box-item button" onclick="bubbleButton()">bubblesort</button>
     <div id="sortedResult" class="box-item"></div>
 </div>
 
 <!-- insertionsort -->
 
 <div class="sort-box">
-    <input class="box-item" type="text" id="numberInput" />
-    <button class="box-item" onclick="insertionButton()">insertionsort</button>
+    <input class="box-item" type="text" id="insertionsortInput" placeholder="add some numbers here" />
+    <button class="box-item button" onclick="insertionButton()">insertionsort</button>
+    <div id="sortedResult" class="box-item"></div>
+</div>
+
+<!-- mergesort -->
+
+<div class="sort-box">
+    <input class="box-item" type="text" id="mergesortInput" placeholder="add some numbers here" />
+    <button class="box-item button" onclick="mergeButton()">mergesort</button>
     <div id="sortedResult" class="box-item"></div>
 </div>
 
 
+<script>
+    function quickButton(input) {
+        var input = document.getElementById("quicksortInput").value;
+        var numbers = input.split(",").map(function(num){
+            return parseInt(num.trim());
+        });
+        var sortedNumbers = quicksort(numbers);
+        document.getElementById("sortedResult").innerText = "your sorted numbers are " + sortedNumbers.join(', ');
+    }
 
+    function bubbleButton(input) {
+        var input = document.getElementById("bubblesortInput").value;
+        var numbers = input.split(",").map(function(num){
+            return parseInt(num.trim());
+        });
+        var sortedNumbers = bubblesort(numbers);
+        document.getElementById("bubblesortedResult").innerText = "your sorted numbers are " + sortedNumbers.join(', ');
+    }    
 
+    function insertionButton(input) {
+        var input = document.getElementById("insertionsortInput").value;
+        var numbers = input.split(",").map(function(num){
+            return parseInt(num.trim());
+        });
+        var sortedNumbers = insertionsort(numbers);
+        document.getElementById("insertionsortedResult").innerText = "your sorted numbers are " + sortedNumbers.join(', ');
+    }   
+    
+    function mergeButton(input) {
+        var input = document.getElementById("mergesortInput").value;
+        var numbers = input.split(",").map(function(num){
+            return parseInt(num.trim());
+        });
+        var sortedNumbers = mergesort(numbers);
+        document.getElementById("mergesortedResult").innerText = "your sorted numbers are " + sortedNumbers.join(', ');
+    }   
 
-
-
-
-
+</script>
 
 </body>
 </html>
