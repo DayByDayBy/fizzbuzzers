@@ -1,6 +1,23 @@
-const fs = require("fs");
+function fetchDataFromFile(filePath) {
+  return fetch(filePath)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Failed to fetch data');
+          }
+          return response.text();
+      })
+      .then(data => {
+          return data.split(',').map(Number);
+      })
+      .catch(error => {
+          console.error('Error while fetching data:', error);
+          return []; 
+      });
+}
+
 
 function merge(left, right) {
+
   let result = [];
   let leftIndex = 0;
   let rightIndex = 0;
@@ -14,11 +31,11 @@ function merge(left, right) {
       rightIndex++;
     }
   }
-
   return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
 
-function mergeSort(data) {
+
+function mergesort(data) {
   if (data.length <= 1) {
     return data;
   }
@@ -27,21 +44,18 @@ function mergeSort(data) {
   const left = data.slice(0, middle);
   const right = data.slice(middle);
 
-  return merge(mergeSort(left), mergeSort(right));
+  return merge(mergesort(left), mergesort(right));
 }
 
-function sortDataFromFile() {
-  const filePath = "../data.txt";
-  fs.readFile(filePath, "utf8", (err, data) => {
-    if (err) {
-      console.error("Error reading file:", err);
-      return;
-    }
-    const dataArray = data.split(",").map(element => parseInt(element.trim(), 10));
-    const sortedData = mergeSort(dataArray);
-    
-    console.log("Sorted data: ", sortedData);
-  });
-}
 
-sortDataFromFile();
+const filePath = '../data.txt'
+
+
+fetchDataFromFile(filePath)
+    .then(data => {
+        const sortedData = mergesort(data)
+        console.log(sortedData);
+    });
+
+
+

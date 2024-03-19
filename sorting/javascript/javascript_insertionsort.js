@@ -9,6 +9,7 @@ function insertionsort(data){
             let temp = data[j];
             data[j] = data[j+1];
             data[j+1] = temp;
+            
             j -=1
         }
     }

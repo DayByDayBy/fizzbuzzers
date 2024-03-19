@@ -1,11 +1,18 @@
-// print('\n')    #  not necessary at all, but improves command-line readability when running 
-
-const fs = require('fs');
-let data;
-try {
-    data = fs.readFileSync('../data.txt', 'utf8').split(',').map(Number);
-} catch (error) {
-    console.error('error while reading file:', error);
+function fetchDataFromFile(filePath) {
+    return fetch(filePath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            return response.text();
+        })
+        .then(data => {
+            return data.split(',').map(Number);
+        })
+        .catch(error => {
+            console.error('Error while fetching data:', error);
+            return []; 
+        });
 }
 
 function bubblesort(data){
@@ -21,10 +28,15 @@ function bubblesort(data){
             }
         }
     }
-return data
+    return data;
     
 }
 
-bubblesort(data)
-console.log(bubblesort(data));
+const filepath = '../data.txt'
+
+fetchDataFromFile(filepath)
+    .then(data => {
+        const sortedData = bubblesort(data)
+        console.log(sortedData);
+    });
 
