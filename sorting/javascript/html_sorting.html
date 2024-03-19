@@ -105,7 +105,12 @@
 </div>
 
 
+<!-- one click to click them all -->
 
+<div class="one-button-box">
+    <input class="box-item" type="text" id="allSortsInput" placeholder="run em all!" />
+    <button class="box-item button" onclick="runAllSortsAndUpdateResults()">Run All Sorts</button>
+</div>
 
 
 
@@ -138,6 +143,16 @@ function sort(algorithm) {
     }
     resultElement.innerText = sortedArray.join(', ');
 
+}
+
+
+function run_all_sorts(inputNumbers){
+return {
+    document.getElementById("quicksortResult").innerText = quicksort(inputNumbers.slice());
+    document.getElementById("bubblesortResult").innerText = bubblesort(inputNumbers.slice()).join(', ');
+    document.getElementById("insertionsortResult").innerText = insertionsort(inputNumbers.slice()).join(', ');
+    document.getElementById("mergesortResult").innerText = mergesort(inputNumbers.slice()).join(', ');
+    };
 }
 </script>
 
