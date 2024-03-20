@@ -68,9 +68,7 @@
 
     </style>
 </head>
-
 <body>
-
 
 <h1 class="box-item title">some <br> sorting <br> algorithms</h1>
 
@@ -106,24 +104,22 @@
 
 
 <!-- one click to click them all -->
-
 <div class="one-button-box">
     <input class="box-item" type="text" id="allSortsInput" placeholder="run em all!" />
-    <button class="box-item button" onclick="runAllSortsAndUpdateResults()">Run All Sorts</button>
+    <button class="box-item button" onclick="runAllSorts()">run all sorts</button>
 </div>
 
 
 
 <script>
 
-function sort(algorithm) {
+function sort(algorithm, numbers) {
     
     var inputID = algorithm + "Input";
     var resultID = algorithm + "Result";
     var inputElement = document.getElementById(inputID);
     var resultElement = document.getElementById(resultID);
     var numbers = inputElement.value.split(",").map(Number)
-
 
     switch(algorithm) {
         case 'quicksort':
@@ -138,23 +134,37 @@ function sort(algorithm) {
         case 'mergesort':
             sortedArray = mergesort(numbers);
             break;
+        case 'allsorts':
+            runAllSorts(numbers);
+            break;
         default:
-            sortedArray = [];
+            sortedArray = [999, 666, 13];
     }
-    resultElement.innerText = sortedArray.join(', ');
+    resultElement.innerText = sortedArray.join(", ");
 
 }
 
 
-function run_all_sorts(inputNumbers){
-return {
-    document.getElementById("quicksortResult").innerText = quicksort(inputNumbers.slice());
-    document.getElementById("bubblesortResult").innerText = bubblesort(inputNumbers.slice()).join(', ');
-    document.getElementById("insertionsortResult").innerText = insertionsort(inputNumbers.slice()).join(', ');
-    document.getElementById("mergesortResult").innerText = mergesort(inputNumbers.slice()).join(', ');
-    };
+function runAllSorts(){
+    var numbers = document.getElementById("allSortsInput").value.split(",").map(Number);
+    var mergesortResult = mergesort(numbers.slice());
+    var insertionsortResult = insertionsort(numbers.slice());
+    var bubblesortResult = bubblesort(numbers.slice());
+    var quicksortResult = quicksort(numbers.slice());
+    
+    document.getElementById("mergesortResult").innerText = mergesortResult.join(", ");
+    document.getElementById("insertionsortResult").innerText = insertionsortResult.join(", ");
+    document.getElementById("bubblesortResult").innerText = bubblesortResult.join(", ");
+    document.getElementById("quicksortResult").innerText = quicksortResult.join(", ");
+
+
 }
+
 </script>
 
 </body>
 </html>
+
+
+
+

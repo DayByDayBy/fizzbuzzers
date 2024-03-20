@@ -13,6 +13,7 @@ function insertionsort(data){
             j -=1
         }
     }
+    return data;
     
 }
 insertionsort(data);
