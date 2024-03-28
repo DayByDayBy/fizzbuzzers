@@ -12,13 +12,21 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { quicksort, bubblesort, insertionsort, mergesort } from "./sortingAlgorithms";
 
+console.log(quicksort);
+console.log(mergesort);
+console.log(insertionsort);
+console.log(bubblesort);
+
 
 const SPACING = 24;
 const FONT_SIZE = 24;
 
 
-
 function HomeScreen() {
+  console.log(quicksort);
+console.log(mergesort);
+console.log(insertionsort);
+console.log(bubblesort);
   const [numbers, setNumbers] = useState("");
   const [sortedNumbers, setSortedNumbers] = useState([]);
 
@@ -145,6 +153,8 @@ function SettingsScreen() {
 }
 
 const Tab = createBottomTabNavigator();
+
+
 
 export default function App() {
   return (
