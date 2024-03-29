@@ -9,10 +9,10 @@ import { mergesort } from "./sortingAlgorithms/mergesort";
 import { bubblesort } from "./sortingAlgorithms/bubblesort";
 import { insertionsort } from "./sortingAlgorithms/insertionsort";
 
-const PADDING = 16;
-const MARGIN = 8;
+const PADDING = 18;
+const MARGIN = 12;
 const FONT_SIZE = 24;
-const BUTTON_SIZE = 200;
+const BUTTON_SIZE = 300;
 
 function HomeScreen() {
   const [numbers, setNumbers] = useState("");
@@ -179,9 +179,9 @@ function HomeScreen() {
         <View>
         <Text
           style={{
-            
             justifyContent: "space-between",
-            marginTop: 12,
+            width: BUTTON_SIZE,
+            marginTop: MARGIN*3,
             padding: 10,
             borderRadius: 20,
             borderWidth: 2,
@@ -194,7 +194,6 @@ function HomeScreen() {
 
           <Text
             style={{
-              width: BUTTON_SIZE,
               fontSize: 10,
               textAlign: 'center',
               color: "#2a2a2a",
@@ -202,8 +201,8 @@ function HomeScreen() {
               borderWidth: 1,
               borderRadius: 10,
               borderColor: '#d7d7d0',
-              padding: 10,
-              margin: 10
+              padding: PADDING/3,
+              margin: MARGIN/2,
             }}
           >
           {algorithm}ed in {sortingTime.toFixed(4)}μs
