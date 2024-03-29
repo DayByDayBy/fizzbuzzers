@@ -24,6 +24,11 @@ function HomeScreen() {
   const [algorithm, setAlgorithm] = useState("");
 
   const handleSort = (algorithm) => {
+    try{ 
+      if (!isValidInput(numbers)){
+        throw new Error("please enter some numbers, separated by commas");
+      }
+    } 
     const startTime = performance.now();
     let array = numbers.split(", ").map(Number);
     let sortedArray;
@@ -51,7 +56,7 @@ function HomeScreen() {
         algorithmName = "unknown";
     }
     const endTime = performance.now();
-    setSortingTime((endTime - startTime) / 1000);
+    setSortingTime((endTime - startTime)*1000);
     setSortedNumbers(sortedArray);
     setAlgorithm(algorithmName);
   };
@@ -69,33 +74,21 @@ function HomeScreen() {
           fontSize: FONT_SIZE,
           textAlign: "center",
           fontWeight: 700,
-          textShadowRadius: 3,
+          textShadowRadius: 10,
           textShadowOffset: { height: 2, width: 1 },
-          textShadowColor: "#aaaaaaa8",
+          textShadowColor: "#F5E8DD",
         }}
       >
-        NUMBER COMMA NUMBER {"\n"}a sorting app{"\n"}
-      </Text>
-
-      <Text
-        style={{
-          position: "relative",
-          backgroundColor: "#dbf5d7b8",
-          borderRadius: 15,
-          paddingVertical: 6,
-          paddingHorizontal: 30,
-          marginBottom: SPACING,
-
-          alignItems: "center",
-        }}
-      >
+        NUMBER COMMA NUMBER {"\n"}
         <Text
-          style={{ color: "#0202daee" }}
-          onPress={() => Linking.openURL("http://boag.dev")}
+          style={{
+            fontSize: 18,
+            textAlign: "center",
+            fontWeight: 400,
+          }}
         >
-          Бог
+          a sorting app{"\n"}
         </Text>
-        -built
       </Text>
 
       <TextInput
@@ -126,7 +119,7 @@ function HomeScreen() {
         onPress={() => handleSort("quicksort")}
         accessibilityLabel="quicksort button"
       >
-        <Text>quicksort</Text>
+        <Text style={{ fontWeight: 400, fontSize: FONT_SIZE }}>quicksort</Text>
       </Pressable>
 
       <Pressable
@@ -140,7 +133,7 @@ function HomeScreen() {
         onPress={() => handleSort("bubblesort")}
         accessibilityLabel="bubblesort button"
       >
-        <Text>bubblesort</Text>
+        <Text style={{ fontWeight: 400, fontSize: FONT_SIZE }}>bubblesort</Text>
       </Pressable>
 
       <Pressable
@@ -154,7 +147,9 @@ function HomeScreen() {
         onPress={() => handleSort("insertionsort")}
         accessibilityLabel="insertionsort button"
       >
-        <Text>insertionsort</Text>
+        <Text style={{ fontWeight: 400, fontSize: FONT_SIZE }}>
+          insertionsort
+        </Text>
       </Pressable>
 
       <Pressable
@@ -168,38 +163,66 @@ function HomeScreen() {
         onPress={() => handleSort("mergesort")}
         accessibilityLabel="mergesort button"
       >
-        <Text>mergesort</Text>
+        <Text style={{ fontWeight: 400, fontSize: FONT_SIZE }}>mergesort</Text>
       </Pressable>
 
       {sortedNumbers.length > 0 && sortingTime && algorithm && (
+        <View>
         <Text
           style={{
+            
             justifyContent: "space-between",
-            marginTop: 20,
+            marginTop: 12,
             padding: 10,
             borderRadius: 20,
-            borderWidth: 1,
-            borderColor: "#ccc",
-            borderStyle: "solid",
+            borderWidth: 3,
             textAlign: "center",
-            backgroundColor: "#ccd3ca9a",
+            backgroundColor: "#cad3ce9a",
           }}
         >
-          <Text
-            style={{
-              fontSize: FONT_SIZE,
-              color: "#2a2a2a",
-              borderStyle: "solid",
-            }}
-          >
             {sortedNumbers.join(", ")}
           </Text>
-          {"\n"}
-          {"\n"}
-          sorted in {"\n"} {sortingTime} {"\n"} seconds, using a '{algorithm}'
-          algorithm
+
+          <Text
+            style={{
+              fontSize: 12,
+              textAlign: 'center',
+              color: "#2a2a2a",
+              borderStyle: "solid",
+              borderWidth: 1,
+              borderRadius: 10,
+              borderColor: '#d7d7d7',
+              padding: 10,
+              margin: 10,
+            }}
+          >
+          {algorithm}ed in {sortingTime.toFixed(4)}μs
+          
         </Text>
+        </View>
       )}
+
+      <Text
+        style={{
+          backgroundColor: "#d3e2caf3",
+          borderStyle: 'solid',
+          borderColor: '#000',
+          borderRadius: 50,
+          paddingVertical: 6,
+          paddingHorizontal: 10,
+          marginVertical: SPACING * 1,
+          alignItems: "center",
+        }}
+      >
+        {" "}
+        built by{" "}
+        <Text
+          style={{ color: "#0202daee" }}
+          onPress={() => Linking.openURL("http://boag.dev")}
+        >
+          Бог
+        </Text>
+      </Text>
     </View>
   );
 }
@@ -207,7 +230,7 @@ function HomeScreen() {
 function SettingsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings?! there are no settings!!</Text>
+      <Text>settings?! there are no settings!!</Text>
     </View>
   );
 }
@@ -227,8 +250,6 @@ export default function App() {
             } else if (route.name === "Settings") {
               iconName = focused ? "settings" : "settings-outline";
             }
-
-            // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: "tomato",
