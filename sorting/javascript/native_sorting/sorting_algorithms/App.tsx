@@ -9,8 +9,10 @@ import { mergesort } from "./sortingAlgorithms/mergesort";
 import { bubblesort } from "./sortingAlgorithms/bubblesort";
 import { insertionsort } from "./sortingAlgorithms/insertionsort";
 
-const SPACING = 24;
+const PADDING = 16;
+const MARGIN = 8;
 const FONT_SIZE = 24;
+const BUTTON_SIZE = 200;
 
 function HomeScreen() {
   const [numbers, setNumbers] = useState("");
@@ -72,7 +74,7 @@ function HomeScreen() {
     <View
       style={{
         flex: 1,
-        padding: SPACING,
+        padding: PADDING,
         alignItems: "center",
       }}
     >
@@ -101,8 +103,8 @@ function HomeScreen() {
       <TextInput
         style={{
           backgroundColor: "#ffffffc9",
-          padding: SPACING,
-          margin: SPACING,
+          padding: PADDING,
+          margin: MARGIN,
           borderWidth: 1,
           borderRadius: 10,
           fontSize: FONT_SIZE,
@@ -118,8 +120,8 @@ function HomeScreen() {
       <Pressable
         style={{
           backgroundColor: "#ead9dda1",
-          padding: SPACING,
-          margin: 1,
+          padding: PADDING,
+          margin: MARGIN,
           borderRadius: 15,
           alignItems: "center",
         }}
@@ -132,8 +134,8 @@ function HomeScreen() {
       <Pressable
         style={{
           backgroundColor: "#ead9dda1",
-          padding: SPACING,
-          margin: 1,
+          padding: PADDING,
+          margin: MARGIN,
           borderRadius: 15,
           alignItems: "center",
         }}
@@ -146,8 +148,8 @@ function HomeScreen() {
       <Pressable
         style={{
           backgroundColor: "#ead9dda1",
-          padding: SPACING,
-          margin: 1,
+          padding: PADDING,
+          margin: MARGIN,
           borderRadius: 15,
           alignItems: "center",
         }}
@@ -162,8 +164,8 @@ function HomeScreen() {
       <Pressable
         style={{
           backgroundColor: "#ead9dda1",
-          padding: SPACING,
-          margin: 1,
+          padding: PADDING,
+          margin: MARGIN,
           borderRadius: 15,
           alignItems: "center",
         }}
@@ -182,9 +184,9 @@ function HomeScreen() {
             marginTop: 12,
             padding: 10,
             borderRadius: 20,
-            borderWidth: 3,
+            borderWidth: 2,
             textAlign: "center",
-            backgroundColor: "#cad3ce9a",
+            backgroundColor: "#e8e8e89a",
           }}
         >
             {sortedNumbers.join(", ")}
@@ -192,15 +194,16 @@ function HomeScreen() {
 
           <Text
             style={{
-              fontSize: 12,
+              width: BUTTON_SIZE,
+              fontSize: 10,
               textAlign: 'center',
               color: "#2a2a2a",
               borderStyle: "solid",
               borderWidth: 1,
               borderRadius: 10,
-              borderColor: '#d7d7d7',
+              borderColor: '#d7d7d0',
               padding: 10,
-              margin: 10,
+              margin: 10
             }}
           >
           {algorithm}ed in {sortingTime.toFixed(4)}μs
@@ -211,14 +214,15 @@ function HomeScreen() {
 
       <Text
         style={{
+          position: "absolute",
+          bottom: 0,
           backgroundColor: "#deefd495",
           borderStyle: 'solid',
           borderColor: '#000',
           borderRadius: 50,
           paddingVertical: 6,
           paddingHorizontal: 10,
-          marginVertical: SPACING * 1,
-          alignItems: "center",
+          marginVertical: PADDING,
         }}
       >
         {" "}
