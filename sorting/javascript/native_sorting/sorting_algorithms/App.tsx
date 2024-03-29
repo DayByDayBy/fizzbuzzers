@@ -240,7 +240,9 @@ function HomeScreen() {
 function SettingsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>settings?! there are no settings!!</Text>
+      <Ionicons name='ban' color="#cb465f" size='100' style={{padding: PADDING, margin: MARGIN}}/>
+      <Text>
+        settings adjusted automatically based on user profile</Text>
     </View>
   );
 }
@@ -254,20 +256,19 @@ export default function App() {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-
-            if (route.name === "Home") {
-              iconName = focused ? "home" : "home-outline";
-            } else if (route.name === "Settings") {
+            if (route.name === "sortem") {
+              iconName = focused ? "funnel" : "funnel-outline";
+            } else if (route.name === "settings") {
               iconName = focused ? "settings" : "settings-outline";
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "tomato",
+          tabBarActiveTintColor: "#cb465f",
           tabBarInactiveTintColor: "gray",
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="sortem" component={HomeScreen} />
+        <Tab.Screen name="settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
