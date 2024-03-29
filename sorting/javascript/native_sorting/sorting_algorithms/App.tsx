@@ -19,11 +19,11 @@ function HomeScreen() {
   const [algorithm, setAlgorithm] = useState("");
 
   const handleSort = (algorithm) => {
-    try{ 
+    try{
       if (!isValidInput(numbers)){
-        throw new Error("please enter some numbers, separated by commas");
+        throw new Error("please enter comma-separated numbers");
       }
-    } 
+    
     const startTime = performance.now();
     let array = numbers.split(", ").map(Number);
     let sortedArray;
@@ -54,6 +54,18 @@ function HomeScreen() {
     setSortingTime((endTime - startTime)*1000);
     setSortedNumbers(sortedArray);
     setAlgorithm(algorithmName);
+    } catch(error){
+    console.error(error.message);
+    }
+ 
+  };
+
+  const isValidInput = (input) => {
+    if (!input.trim()) {
+      return false;
+    }
+      const parts = input.split(",");
+      return parts.length > 1 && parts.every(part => !isNaN(Number(part.trim())));
   };
 
   return (
@@ -199,7 +211,7 @@ function HomeScreen() {
 
       <Text
         style={{
-          backgroundColor: "#d3e2caf3",
+          backgroundColor: "#deefd495",
           borderStyle: 'solid',
           borderColor: '#000',
           borderRadius: 50,
