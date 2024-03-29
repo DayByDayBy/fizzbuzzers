@@ -14,60 +14,61 @@ const MARGIN = 12;
 const FONT_SIZE = 24;
 const BUTTON_SIZE = 300;
 
-function HomeScreen() {
+function SortingScreen() {
   const [numbers, setNumbers] = useState("");
   const [sortedNumbers, setSortedNumbers] = useState([]);
   const [sortingTime, setSortingTime] = useState(null);
   const [algorithm, setAlgorithm] = useState("");
 
   const handleSort = (algorithm) => {
-    try{
-      if (!isValidInput(numbers)){
+    try {
+      if (!isValidInput(numbers)) {
         throw new Error("please enter comma-separated numbers");
       }
-    
-    const startTime = performance.now();
-    let array = numbers.split(", ").map(Number);
-    let sortedArray;
-    let algorithmName;
 
-    switch (algorithm) {
-      case "quicksort":
-        sortedArray = quicksort(array);
-        algorithmName = "quicksort";
-        break;
-      case "bubblesort":
-        sortedArray = bubblesort(array);
-        algorithmName = "bubblesort";
-        break;
-      case "insertionsort":
-        sortedArray = insertionsort(array);
-        algorithmName = "insertionsort";
-        break;
-      case "mergesort":
-        sortedArray = mergesort(array);
-        algorithmName = "mergesort";
-        break;
-      default:
-        sortedArray = [];
-        algorithmName = "unknown";
+      const startTime = performance.now();
+      let array = numbers.split(", ").map(Number);
+      let sortedArray;
+      let algorithmName;
+
+      switch (algorithm) {
+        case "quicksort":
+          sortedArray = quicksort(array);
+          algorithmName = "quicksort";
+          break;
+        case "bubblesort":
+          sortedArray = bubblesort(array);
+          algorithmName = "bubblesort";
+          break;
+        case "insertionsort":
+          sortedArray = insertionsort(array);
+          algorithmName = "insertionsort";
+          break;
+        case "mergesort":
+          sortedArray = mergesort(array);
+          algorithmName = "mergesort";
+          break;
+        default:
+          sortedArray = [];
+          algorithmName = "unknown";
+      }
+      const endTime = performance.now();
+      setSortingTime((endTime - startTime) * 1000);
+      setSortedNumbers(sortedArray);
+      setAlgorithm(algorithmName);
+    } catch (error) {
+      console.error(error.message);
     }
-    const endTime = performance.now();
-    setSortingTime((endTime - startTime)*1000);
-    setSortedNumbers(sortedArray);
-    setAlgorithm(algorithmName);
-    } catch(error){
-    console.error(error.message);
-    }
- 
   };
 
   const isValidInput = (input) => {
     if (!input.trim()) {
       return false;
     }
-      const parts = input.split(",");
-      return parts.length > 1 && parts.every(part => !isNaN(Number(part.trim())));
+    const parts = input.split(",");
+    return (
+      parts.length > 1 && parts.every((part) => !isNaN(Number(part.trim())))
+    );
   };
 
   return (
@@ -115,7 +116,9 @@ function HomeScreen() {
         accessibilityLabel="add some numbers here to be sorted"
       />
 
-      {/*  buttons for the sorting */}
+
+
+      {/*  pressable buttons for the sorting, one per algo */}
 
       <Pressable
         style={{
@@ -177,37 +180,36 @@ function HomeScreen() {
 
       {sortedNumbers.length > 0 && sortingTime && algorithm && (
         <View>
-        <Text
-          style={{
-            justifyContent: "space-between",
-            width: BUTTON_SIZE,
-            marginTop: MARGIN*3,
-            padding: 10,
-            borderRadius: 20,
-            borderWidth: 2,
-            textAlign: "center",
-            backgroundColor: "#e8e8e89a",
-          }}
-        >
+          <Text
+            style={{
+              justifyContent: "space-between",
+              width: BUTTON_SIZE,
+              marginTop: MARGIN * 3,
+              padding: 10,
+              borderRadius: 20,
+              borderWidth: 2,
+              textAlign: "center",
+              backgroundColor: "#e8e8e89a",
+            }}
+          >
             {sortedNumbers.join(", ")}
           </Text>
 
           <Text
             style={{
               fontSize: 10,
-              textAlign: 'center',
+              textAlign: "center",
               color: "#2a2a2a",
               borderStyle: "solid",
               borderWidth: 1,
               borderRadius: 10,
-              borderColor: '#d7d7d0',
-              padding: PADDING/3,
-              margin: MARGIN/2,
+              borderColor: "#d7d7d0",
+              padding: PADDING / 3,
+              margin: MARGIN / 2,
             }}
           >
-          {algorithm}ed in {sortingTime.toFixed(4)}μs
-          
-        </Text>
+            {algorithm}ed in {sortingTime.toFixed(4)}μs
+          </Text>
         </View>
       )}
 
@@ -216,8 +218,8 @@ function HomeScreen() {
           position: "absolute",
           bottom: 0,
           backgroundColor: "#deefd495",
-          borderStyle: 'solid',
-          borderColor: '#000',
+          borderStyle: "solid",
+          borderColor: "#000",
           borderRadius: 50,
           paddingVertical: 6,
           paddingHorizontal: 10,
@@ -237,12 +239,21 @@ function HomeScreen() {
   );
 }
 
+
+
+
+// the settings tab isnt really necessary, but built it anyway for practice and because i prefer the symmetry 
+
 function SettingsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Ionicons name='ban' color="#cb465f" size='100' style={{padding: PADDING, margin: MARGIN}}/>
-      <Text>
-        settings adjusted automatically based on user profile</Text>
+      <Ionicons
+        name="ban"
+        color="#cb465f"
+        size="100"
+        style={{ padding: PADDING, margin: MARGIN }}
+      />
+      <Text>settings adjusted automatically based on user profile</Text>
     </View>
   );
 }
@@ -267,7 +278,7 @@ export default function App() {
           tabBarInactiveTintColor: "gray",
         })}
       >
-        <Tab.Screen name="sortem" component={HomeScreen} />
+        <Tab.Screen name="sortem" component={SortingScreen} />
         <Tab.Screen name="settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
