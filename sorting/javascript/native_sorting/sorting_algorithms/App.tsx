@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import {
-  ActivityIndicator,
+  Linking,
   Pressable,
   Text,
   TextInput,
@@ -10,63 +10,82 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { quicksort, bubblesort, insertionsort, mergesort } from "./sortingAlgorithms";
+import { quicksort } from "./sortingAlgorithms/quicksort";
+import { mergesort } from "./sortingAlgorithms/mergesort";
+import { bubblesort } from "./sortingAlgorithms/bubblesort";
+import { insertionsort } from "./sortingAlgorithms/insertionsort";
 
 console.log(quicksort);
 console.log(mergesort);
 console.log(insertionsort);
 console.log(bubblesort);
 
-
 const SPACING = 24;
 const FONT_SIZE = 24;
 
-
 function HomeScreen() {
   console.log(quicksort);
-console.log(mergesort);
-console.log(insertionsort);
-console.log(bubblesort);
+  console.log(mergesort); 
+  console.log(insertionsort);
+  console.log(bubblesort);
   const [numbers, setNumbers] = useState("");
   const [sortedNumbers, setSortedNumbers] = useState([]);
+  const [sortingTime, setSortingTime] = useState(null);
+  const [algorithm, setAlgorithm] = useState("");
+
+
 
   const handleSort = (algorithm) => {
-    let array = numbers.split(', ').map(Number);
+    const startTime = performance.now();
+    let array = numbers.split(", ").map(Number);
     let sortedArray;
-  
+    let algorithmName;
+
     switch (algorithm) {
       case "quicksort":
-          sortedArray = quicksort(array);
-          break;
-        case "bubblesort":
-          sortedArray = bubblesort(array);
-          break;
-        case "insertionsort":
-          sortedArray = insertionsort(array);
-          break;
-        case "mergesort":
-          sortedArray = mergesort(array);
-          break;
-        default:
-          sortedArray = [];
-  }
-  setSortedNumbers(sortedArray);
-};
+        sortedArray = quicksort(array);
+        algorithmName = "quicksort";
+        break;
+      case "bubblesort":
+        sortedArray = bubblesort(array);
+        algorithmName = "bubblesort";
+        break;
+      case "insertionsort":
+        sortedArray = insertionsort(array);
+        algorithmName = "insertionsort";
+        break;
+      case "mergesort":
+        sortedArray = mergesort(array);
+        algorithmName = "mergesort";
+        break;
+      default:
+        sortedArray = [];
+        algorithmName = "unknown";  
+    }
+    const endTime = performance.now(); 
+    setSortingTime((endTime - startTime) / 1000);
+    setSortedNumbers(sortedArray);
+    setAlgorithm(algorithmName);
+
+
+
+
+  };
 
   return (
     <View
       style={{
-        flex: 1,
-        justifyContent: "center",
+        flex: 1,  
         alignItems: "center",
       }}
     >
       <TextInput
         style={{
-          backgroundColor: "#B5C0D0",
+          backgroundColor: "#b5c0d07b",
           padding: SPACING,
           margin: SPACING,
           borderWidth: 1,
+          borderRadius: 10,
           fontSize: FONT_SIZE,
         }}
         value={numbers}
@@ -75,17 +94,17 @@ console.log(bubblesort);
         accessibilityLabel="add some numbers here to be sorted"
       />
 
-{/*  buttons for the sorting */}
+      {/*  buttons for the sorting */}
 
       <Pressable
         style={{
-          backgroundColor: "#EED3D9",
+          backgroundColor: "#eed3d9a2",
           padding: SPACING,
-          marginHorizontal: SPACING,
+          margin: 1,
           borderRadius: 15,
           alignItems: "center",
         }}
-        onPress={()=> handleSort('quicksort')}
+        onPress={() => handleSort("quicksort")}
         accessibilityLabel="quicksort button"
       >
         <Text>quicksort</Text>
@@ -93,13 +112,13 @@ console.log(bubblesort);
 
       <Pressable
         style={{
-          backgroundColor: "#EED3D9",
+          backgroundColor: "#eed3d9a2",
           padding: SPACING,
-          marginHorizontal: SPACING,
+          margin: 1,
           borderRadius: 15,
           alignItems: "center",
         }}
-        onPress={()=> handleSort('bubblesort')}
+        onPress={() => handleSort("bubblesort")}
         accessibilityLabel="bubblesort button"
       >
         <Text>bubblesort</Text>
@@ -107,13 +126,13 @@ console.log(bubblesort);
 
       <Pressable
         style={{
-          backgroundColor: "#EED3D9",
+          backgroundColor: "#eed3d9a2",
           padding: SPACING,
-          marginHorizontal: SPACING,
+          margin: 1,
           borderRadius: 15,
           alignItems: "center",
         }}
-        onPress={()=> handleSort('insertionsort')}
+        onPress={() => handleSort("insertionsort")}
         accessibilityLabel="insertionsort button"
       >
         <Text>insertionsort</Text>
@@ -121,26 +140,52 @@ console.log(bubblesort);
 
       <Pressable
         style={{
-          backgroundColor: "#EED3D9",
+          backgroundColor: "#eed3d9a2",
           padding: SPACING,
-          marginHorizontal: SPACING,
+          margin: 1,
           borderRadius: 15,
           alignItems: "center",
         }}
-        onPress={()=> handleSort('mergesort')}
+        onPress={() => handleSort("mergesort")}
         accessibilityLabel="mergesort button"
       >
         <Text>mergesort</Text>
       </Pressable>
 
+      {sortedNumbers.length > 0 && sortingTime && algorithm && (
 
-      <Text style={{ marginTop: 20 }}>
-        Sorted Numbers: {sortedNumbers.join(", ")}
+      <Text style={{ justifyContent: 'space-between', marginTop: 20, padding: 10,  borderRadius:20, borderWidth:1, borderColor: '#ccc', borderStyle: 'solid', textAlign: 'center', backgroundColor: '#ccd3ca9a'}}>
+        <Text style={{fontSize: FONT_SIZE, color: '#2a2a2a'}}>sorted numbers: {sortedNumbers.join(", ")}</Text> {"\n"}{"\n"}
+        sorted in {"\n"} {sortingTime} {"\n"} seconds, using a '{algorithm}' algorithm
       </Text>
+      )}
+
+      <Text         style={{
+          backgroundColor: "#6f756ece",
+          borderRadius: 15,
+          paddingVertical: 5,
+          paddingHorizontal: 30,
+          margin: SPACING*4,
+        
+          alignItems: "center",
+        }}>
+
+          powered by      <Text style={{color: 'blue'}}
+      onPress={() => Linking.openURL('http://boag.dev')}>
+        Бог
+        </Text>
+  
+
+
+
+        </Text>
+
+   
+</Text>
+
 
 
     </View>
-
   );
 }
 
@@ -153,8 +198,6 @@ function SettingsScreen() {
 }
 
 const Tab = createBottomTabNavigator();
-
-
 
 export default function App() {
   return (
@@ -183,5 +226,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-
