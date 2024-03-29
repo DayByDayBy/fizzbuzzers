@@ -9,11 +9,6 @@ import { mergesort } from "./sortingAlgorithms/mergesort";
 import { bubblesort } from "./sortingAlgorithms/bubblesort";
 import { insertionsort } from "./sortingAlgorithms/insertionsort";
 
-console.log(quicksort);
-console.log(mergesort);
-console.log(insertionsort);
-console.log(bubblesort);
-
 const SPACING = 24;
 const FONT_SIZE = 24;
 
