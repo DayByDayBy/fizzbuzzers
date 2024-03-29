@@ -1,12 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import {
-  Linking,
-  Pressable,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { Linking, Pressable, Text, TextInput, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -24,16 +18,10 @@ const SPACING = 24;
 const FONT_SIZE = 24;
 
 function HomeScreen() {
-  console.log(quicksort);
-  console.log(mergesort); 
-  console.log(insertionsort);
-  console.log(bubblesort);
   const [numbers, setNumbers] = useState("");
   const [sortedNumbers, setSortedNumbers] = useState([]);
   const [sortingTime, setSortingTime] = useState(null);
   const [algorithm, setAlgorithm] = useState("");
-
-
 
   const handleSort = (algorithm) => {
     const startTime = performance.now();
@@ -60,28 +48,59 @@ function HomeScreen() {
         break;
       default:
         sortedArray = [];
-        algorithmName = "unknown";  
+        algorithmName = "unknown";
     }
-    const endTime = performance.now(); 
+    const endTime = performance.now();
     setSortingTime((endTime - startTime) / 1000);
     setSortedNumbers(sortedArray);
     setAlgorithm(algorithmName);
-
-
-
-
   };
 
   return (
     <View
       style={{
-        flex: 1,  
+        flex: 1,
+        padding: SPACING,
         alignItems: "center",
       }}
     >
+      <Text
+        style={{
+          fontSize: FONT_SIZE,
+          textAlign: "center",
+          fontWeight: 700,
+          textShadowRadius: 3,
+          textShadowOffset: { height: 2, width: 1 },
+          textShadowColor: "#aaaaaaa8",
+        }}
+      >
+        NUMBER COMMA NUMBER {"\n"}a sorting app{"\n"}
+      </Text>
+
+      <Text
+        style={{
+          position: "relative",
+          backgroundColor: "#dbf5d7b8",
+          borderRadius: 15,
+          paddingVertical: 6,
+          paddingHorizontal: 30,
+          marginBottom: SPACING,
+
+          alignItems: "center",
+        }}
+      >
+        <Text
+          style={{ color: "#0202daee" }}
+          onPress={() => Linking.openURL("http://boag.dev")}
+        >
+          Бог
+        </Text>
+        -built
+      </Text>
+
       <TextInput
         style={{
-          backgroundColor: "#b5c0d07b",
+          backgroundColor: "#ffffffc9",
           padding: SPACING,
           margin: SPACING,
           borderWidth: 1,
@@ -98,7 +117,7 @@ function HomeScreen() {
 
       <Pressable
         style={{
-          backgroundColor: "#eed3d9a2",
+          backgroundColor: "#ead9dda1",
           padding: SPACING,
           margin: 1,
           borderRadius: 15,
@@ -112,7 +131,7 @@ function HomeScreen() {
 
       <Pressable
         style={{
-          backgroundColor: "#eed3d9a2",
+          backgroundColor: "#ead9dda1",
           padding: SPACING,
           margin: 1,
           borderRadius: 15,
@@ -126,7 +145,7 @@ function HomeScreen() {
 
       <Pressable
         style={{
-          backgroundColor: "#eed3d9a2",
+          backgroundColor: "#ead9dda1",
           padding: SPACING,
           margin: 1,
           borderRadius: 15,
@@ -140,7 +159,7 @@ function HomeScreen() {
 
       <Pressable
         style={{
-          backgroundColor: "#eed3d9a2",
+          backgroundColor: "#ead9dda1",
           padding: SPACING,
           margin: 1,
           borderRadius: 15,
@@ -153,38 +172,34 @@ function HomeScreen() {
       </Pressable>
 
       {sortedNumbers.length > 0 && sortingTime && algorithm && (
-
-      <Text style={{ justifyContent: 'space-between', marginTop: 20, padding: 10,  borderRadius:20, borderWidth:1, borderColor: '#ccc', borderStyle: 'solid', textAlign: 'center', backgroundColor: '#ccd3ca9a'}}>
-        <Text style={{fontSize: FONT_SIZE, color: '#2a2a2a'}}>sorted numbers: {sortedNumbers.join(", ")}</Text> {"\n"}{"\n"}
-        sorted in {"\n"} {sortingTime} {"\n"} seconds, using a '{algorithm}' algorithm
-      </Text>
+        <Text
+          style={{
+            justifyContent: "space-between",
+            marginTop: 20,
+            padding: 10,
+            borderRadius: 20,
+            borderWidth: 1,
+            borderColor: "#ccc",
+            borderStyle: "solid",
+            textAlign: "center",
+            backgroundColor: "#ccd3ca9a",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: FONT_SIZE,
+              color: "#2a2a2a",
+              borderStyle: "solid",
+            }}
+          >
+            {sortedNumbers.join(", ")}
+          </Text>
+          {"\n"}
+          {"\n"}
+          sorted in {"\n"} {sortingTime} {"\n"} seconds, using a '{algorithm}'
+          algorithm
+        </Text>
       )}
-
-      <Text         style={{
-          backgroundColor: "#6f756ece",
-          borderRadius: 15,
-          paddingVertical: 5,
-          paddingHorizontal: 30,
-          margin: SPACING*4,
-        
-          alignItems: "center",
-        }}>
-
-          powered by      <Text style={{color: 'blue'}}
-      onPress={() => Linking.openURL('http://boag.dev')}>
-        Бог
-        </Text>
-  
-
-
-
-        </Text>
-
-   
-</Text>
-
-
-
     </View>
   );
 }
@@ -192,7 +207,7 @@ function HomeScreen() {
 function SettingsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
+      <Text>Settings?! there are no settings!!</Text>
     </View>
   );
 }
