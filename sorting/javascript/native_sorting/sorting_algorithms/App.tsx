@@ -16,19 +16,19 @@ const BUTTON_SIZE = 300;
 
 function SortingScreen() {
   const [numbers, setNumbers] = useState("");
-  const [sortedNumbers, setSortedNumbers] = useState([]);
+  const [sortedNumbers, setSortedNumbers] = useState<number[]>([]);
   const [sortingTime, setSortingTime] = useState(0);
   const [algorithm, setAlgorithm] = useState("");
 
   const handleSort = (algorithm: string) => {
     try {
       if (!isValidInput(numbers)) {
-        throw new Error("please enter comma-separated numbers");
+        throw new Error ("please enter comma-separated numbers");
       }
 
       const startTime = performance.now();
       let array = numbers.split(", ").map(Number);
-      let sortedArray: Number[];
+      let sortedArray: number[];
       let algorithmName: string;
 
       switch (algorithm) {
@@ -56,8 +56,12 @@ function SortingScreen() {
       setSortingTime((endTime - startTime) * 1000);
       setSortedNumbers(sortedArray);
       setAlgorithm(algorithmName);
-    } catch (error) {
-      console.error(error.message);
+    } catch (error) { 
+      if (error instanceof Error){
+        console.error(error.message);
+      } else {
+        console.error("An unknown error occurred");
+      }
     }
   };
 
@@ -83,7 +87,7 @@ function SortingScreen() {
         style={{
           fontSize: FONT_SIZE,
           textAlign: "center",
-          fontWeight: 700,
+          fontWeight: '700',
           textShadowRadius: 10,
           textShadowOffset: { height: 2, width: 1 },
           textShadowColor: "#F5E8DD",
