@@ -254,7 +254,7 @@ function SettingsScreen() {
       <Ionicons
         name="ban"
         color="#cb465f"
-        size="100"
+        size={100}
         style={{ padding: PADDING, margin: MARGIN }}
       />
       <Text>settings adjusted automatically based on user profile</Text>
@@ -270,9 +270,9 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
-          
+        
           tabBarIcon: ({ focused, color, size }) => {
-            let iconName: string | undefined;
+            let iconName: string;
             if (route.name === "sortem") {
               iconName = focused ? "funnel" : "funnel-outline";
             } else if (route.name === "settings") {
