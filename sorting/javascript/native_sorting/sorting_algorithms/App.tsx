@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { Linking, Pressable, Text, TextInput, View } from "react-native";
+import { Linking, Pressable, Text, TextInput, TextProps, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -17,10 +17,10 @@ const BUTTON_SIZE = 300;
 function SortingScreen() {
   const [numbers, setNumbers] = useState("");
   const [sortedNumbers, setSortedNumbers] = useState([]);
-  const [sortingTime, setSortingTime] = useState(null);
+  const [sortingTime, setSortingTime] = useState(0);
   const [algorithm, setAlgorithm] = useState("");
 
-  const handleSort = (algorithm) => {
+  const handleSort = (algorithm: string) => {
     try {
       if (!isValidInput(numbers)) {
         throw new Error("please enter comma-separated numbers");
@@ -28,8 +28,8 @@ function SortingScreen() {
 
       const startTime = performance.now();
       let array = numbers.split(", ").map(Number);
-      let sortedArray;
-      let algorithmName;
+      let sortedArray: Number[];
+      let algorithmName: string;
 
       switch (algorithm) {
         case "quicksort":
@@ -61,7 +61,7 @@ function SortingScreen() {
     }
   };
 
-  const isValidInput = (input) => {
+  const isValidInput = (input: String) => {
     if (!input.trim()) {
       return false;
     }
@@ -94,7 +94,7 @@ function SortingScreen() {
           style={{
             fontSize: 18,
             textAlign: "center",
-            fontWeight: 400,
+            fontWeight: '400',
           }}
         >
           a sorting app{"\n"}
@@ -131,7 +131,7 @@ function SortingScreen() {
         onPress={() => handleSort("quicksort")}
         accessibilityLabel="quicksort button"
       >
-        <Text style={{ fontWeight: 400, fontSize: FONT_SIZE }}>quicksort</Text>
+        <Text style={{ fontWeight: '400', fontSize: FONT_SIZE }}>quicksort</Text>
       </Pressable>
 
       <Pressable
@@ -159,7 +159,7 @@ function SortingScreen() {
         onPress={() => handleSort("insertionsort")}
         accessibilityLabel="insertionsort button"
       >
-        <Text style={{ fontWeight: 400, fontSize: FONT_SIZE }}>
+        <Text style={{ fontWeight: '400', fontSize: FONT_SIZE }}>
           insertionsort
         </Text>
       </Pressable>
@@ -175,7 +175,7 @@ function SortingScreen() {
         onPress={() => handleSort("mergesort")}
         accessibilityLabel="mergesort button"
       >
-        <Text style={{ fontWeight: 400, fontSize: FONT_SIZE }}>mergesort</Text>
+        <Text style={{ fontWeight: '400', fontSize: FONT_SIZE }}>mergesort</Text>
       </Pressable>
 
       {sortedNumbers.length > 0 && sortingTime && algorithm && (
@@ -261,16 +261,20 @@ function SettingsScreen() {
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  
   return (
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
+          
           tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+            let iconName: string | undefined;
             if (route.name === "sortem") {
               iconName = focused ? "funnel" : "funnel-outline";
             } else if (route.name === "settings") {
               iconName = focused ? "settings" : "settings-outline";
+            } else {
+              iconName = focused ? "alert" : "alert-outline";
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
