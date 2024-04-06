@@ -11,3 +11,10 @@ export function insertionsort(numbers: number[]): number[] {
     }
     return numbers;
 }
+
+
+
+
+
+
+

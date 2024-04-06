@@ -1,9 +1,11 @@
 import * as React from "react";
 import { useState } from "react";
-import { Linking, Pressable, Text, TextInput, TextProps, View } from "react-native";
+import { Linking, Pressable, Text, TextInput, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
+
+
 import { quicksort } from "./sortingAlgorithms/quicksort";
 import { mergesort } from "./sortingAlgorithms/mergesort";
 import { bubblesort } from "./sortingAlgorithms/bubblesort";
@@ -13,6 +15,7 @@ const PADDING = 18;
 const MARGIN = 12;
 const FONT_SIZE = 24;
 const BUTTON_SIZE = 300;
+
 
 function SortingScreen() {
   const [numbers, setNumbers] = useState("");
@@ -264,15 +267,24 @@ function SettingsScreen() {
 
 const Tab = createBottomTabNavigator();
 
+
+
+// adding this fixes the 'name' underline later, 
+// but it feels like a cheap way round a non-problem, 
+// and i don't like it:
+
+// type GLYPHS = any;
+
+
 export default function App() {
   
   return (
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
-        
+          
           tabBarIcon: ({ focused, color, size }) => {
-            let iconName: string;
+            let iconName;
             if (route.name === "sortem") {
               iconName = focused ? "funnel" : "funnel-outline";
             } else if (route.name === "settings") {
@@ -280,7 +292,8 @@ export default function App() {
             } else {
               iconName = focused ? "alert" : "alert-outline";
             }
-            return <Ionicons name={iconName} size={size} color={color} />;
+
+            return <Ionicons name={iconName} color={color} size={size}  />;
           },
           tabBarActiveTintColor: "#cb465f",
           tabBarInactiveTintColor: "gray",

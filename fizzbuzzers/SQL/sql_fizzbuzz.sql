@@ -2,7 +2,7 @@ DROP TABLE numbers;
 DROP DATABASE fizzbuzz_sql_db;
 CREATE DATABASE fizzbuzz_sql_db;
 \c fizzbuzz_sql_db;
-CREATE TABLE IF NOT EXISTS numbers (
+CREATE TABLE numbers (
     id SERIAL PRIMARY KEY,
     n INTEGER 
 );
