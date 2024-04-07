@@ -14,6 +14,8 @@ object TodoList {
     TodoItem(3, "Exercise", completed = true)
   )
 
+// new task and completion 'tick off' logic:
+
   def addTodo(task: String): Unit = {
     val newId = todos.map(_.id).max + 1
     todos = todos :+ TodoItem(newId, task, completed = false)
@@ -25,17 +27,29 @@ object TodoList {
     })
   }
 
+
+  // def main, conditionally displaying the list, 
+  // adding a task, marking a task off, and 
+  // then displaying the new list 
+
+
   def main(args: Array[String]): Unit = {
     println("Todo List:")
     todos.foreach(todo => println(s"${todo.id}. [${if (todo.completed) "x" else " "}] ${todo.task}"))
 
-
     addTodo("Clean the house")
-
-
+    
     markCompleted(1)
 
     println("\nUpdated Todo List:")
     todos.foreach(todo => println(s"${todo.id}. [${if (todo.completed) "x" else " "}] ${todo.task}"))
   }
 }
+
+
+
+//  this todo is sorta pointless, just made it to learn about the syntax and logic
+//  could do a CLI app with a bit more code, or make a scala.react with some more and a bit of a different approach
+//  may do that at some point, but it's not the priority
+
+// not a terrible place to start learning, if curious:   https://www.scala-exercises.org/
