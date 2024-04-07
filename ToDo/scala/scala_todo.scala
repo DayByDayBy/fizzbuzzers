@@ -47,9 +47,9 @@ object TodoList {
 }
 
 
-
 //  this todo is sorta pointless, just made it to learn about the syntax and logic
 //  could do a CLI app with a bit more code, or make a scala.react with some more and a bit of a different approach
 //  may do that at some point, but it's not the priority
 
-// not a terrible place to start learning, if curious:   https://www.scala-exercises.org/
+//  not a terrible place to start learning, if curious:  https://www.scala-exercises.org/scala_tutorial/terms_and_types   
+//  a bit more advanced, but pretty interesting:  https://www.scala-exercises.org/monocle/iso
