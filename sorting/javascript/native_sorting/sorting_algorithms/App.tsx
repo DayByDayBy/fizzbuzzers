@@ -5,7 +5,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-
 import { quicksort } from "./sortingAlgorithms/quicksort";
 import { mergesort } from "./sortingAlgorithms/mergesort";
 import { bubblesort } from "./sortingAlgorithms/bubblesort";
@@ -305,3 +304,37 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+
+
+
+
+
+// for linking to external:
+
+
+// const supportedURL = 'https://google.com';
+
+// const unsupportedURL = 'slack://open?team=123456';
+
+// type OpenURLButtonProps = {
+//   url: string;
+//   children: string;
+// };
+
+// const OpenURLButton = ({url, children}: OpenURLButtonProps) => {
+//   const handlePress = useCallback(async () => {
+//     // Checking if the link is supported for links with custom URL scheme.
+//     const supported = await Linking.canOpenURL(url);
+
+//     if (supported) {
+//       // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+//       // by some browser in the mobile
+//       await Linking.openURL(url);
+//     } else {
+//       Alert.alert(`Don't know how to open this URL: ${url}`);
+//     }
+//   }, [url]);
+
+//   return <Button title={children} onPress={handlePress} />;
+// };
