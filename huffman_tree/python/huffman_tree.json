@@ -1,0 +1,306 @@
+{
+    "char": null,
+    "freq": 873,
+    "left": {
+        "char": null,
+        "freq": 338,
+        "left": {
+            "char": null,
+            "freq": 154,
+            "left": {
+                "char": null,
+                "freq": 77,
+                "left": {
+                    "char": "r",
+                    "freq": 38,
+                    "left": null,
+                    "right": null
+                },
+                "right": {
+                    "char": null,
+                    "freq": 39,
+                    "left": {
+                        "char": null,
+                        "freq": 19,
+                        "left": {
+                            "char": null,
+                            "freq": 9,
+                            "left": {
+                                "char": null,
+                                "freq": 4,
+                                "left": {
+                                    "char": "f",
+                                    "freq": 2,
+                                    "left": null,
+                                    "right": null
+                                },
+                                "right": {
+                                    "char": "N",
+                                    "freq": 2,
+                                    "left": null,
+                                    "right": null
+                                }
+                            },
+                            "right": {
+                                "char": "b",
+                                "freq": 5,
+                                "left": null,
+                                "right": null
+                            }
+                        },
+                        "right": {
+                            "char": ",",
+                            "freq": 10,
+                            "left": null,
+                            "right": null
+                        }
+                    },
+                    "right": {
+                        "char": "d",
+                        "freq": 20,
+                        "left": null,
+                        "right": null
+                    }
+                }
+            },
+            "right": {
+                "char": "e",
+                "freq": 77,
+                "left": null,
+                "right": null
+            }
+        },
+        "right": {
+            "char": null,
+            "freq": 184,
+            "left": {
+                "char": null,
+                "freq": 86,
+                "left": {
+                    "char": "m",
+                    "freq": 43,
+                    "left": null,
+                    "right": null
+                },
+                "right": {
+                    "char": "s",
+                    "freq": 43,
+                    "left": null,
+                    "right": null
+                }
+            },
+            "right": {
+                "char": null,
+                "freq": 98,
+                "left": {
+                    "char": null,
+                    "freq": 48,
+                    "left": {
+                        "char": "p",
+                        "freq": 22,
+                        "left": null,
+                        "right": null
+                    },
+                    "right": {
+                        "char": null,
+                        "freq": 26,
+                        "left": {
+                            "char": null,
+                            "freq": 12,
+                            "left": {
+                                "char": null,
+                                "freq": 6,
+                                "left": {
+                                    "char": null,
+                                    "freq": 3,
+                                    "left": {
+                                        "char": "S",
+                                        "freq": 1,
+                                        "left": null,
+                                        "right": null
+                                    },
+                                    "right": {
+                                        "char": "?",
+                                        "freq": 2,
+                                        "left": null,
+                                        "right": null
+                                    }
+                                },
+                                "right": {
+                                    "char": ".",
+                                    "freq": 3,
+                                    "left": null,
+                                    "right": null
+                                }
+                            },
+                            "right": {
+                                "char": null,
+                                "freq": 6,
+                                "left": {
+                                    "char": "x",
+                                    "freq": 3,
+                                    "left": null,
+                                    "right": null
+                                },
+                                "right": {
+                                    "char": "h",
+                                    "freq": 3,
+                                    "left": null,
+                                    "right": null
+                                }
+                            }
+                        },
+                        "right": {
+                            "char": null,
+                            "freq": 14,
+                            "left": {
+                                "char": "\n",
+                                "freq": 6,
+                                "left": null,
+                                "right": null
+                            },
+                            "right": {
+                                "char": null,
+                                "freq": 8,
+                                "left": {
+                                    "char": "g",
+                                    "freq": 4,
+                                    "left": null,
+                                    "right": null
+                                },
+                                "right": {
+                                    "char": null,
+                                    "freq": 4,
+                                    "left": {
+                                        "char": "\"",
+                                        "freq": 2,
+                                        "left": null,
+                                        "right": null
+                                    },
+                                    "right": {
+                                        "char": null,
+                                        "freq": 2,
+                                        "left": {
+                                            "char": "Q",
+                                            "freq": 1,
+                                            "left": null,
+                                            "right": null
+                                        },
+                                        "right": {
+                                            "char": "U",
+                                            "freq": 1,
+                                            "left": null,
+                                            "right": null
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "right": {
+                    "char": "o",
+                    "freq": 50,
+                    "left": null,
+                    "right": null
+                }
+            }
+        }
+    },
+    "right": {
+        "char": null,
+        "freq": 535,
+        "left": {
+            "char": null,
+            "freq": 252,
+            "left": {
+                "char": null,
+                "freq": 124,
+                "left": {
+                    "char": null,
+                    "freq": 59,
+                    "left": {
+                        "char": "q",
+                        "freq": 26,
+                        "left": null,
+                        "right": null
+                    },
+                    "right": {
+                        "char": "l",
+                        "freq": 33,
+                        "left": null,
+                        "right": null
+                    }
+                },
+                "right": {
+                    "char": "t",
+                    "freq": 65,
+                    "left": null,
+                    "right": null
+                }
+            },
+            "right": {
+                "char": " ",
+                "freq": 128,
+                "left": null,
+                "right": null
+            }
+        },
+        "right": {
+            "char": null,
+            "freq": 283,
+            "left": {
+                "char": null,
+                "freq": 138,
+                "left": {
+                    "char": null,
+                    "freq": 69,
+                    "left": {
+                        "char": null,
+                        "freq": 34,
+                        "left": {
+                            "char": "v",
+                            "freq": 15,
+                            "left": null,
+                            "right": null
+                        },
+                        "right": {
+                            "char": "c",
+                            "freq": 19,
+                            "left": null,
+                            "right": null
+                        }
+                    },
+                    "right": {
+                        "char": "n",
+                        "freq": 35,
+                        "left": null,
+                        "right": null
+                    }
+                },
+                "right": {
+                    "char": "u",
+                    "freq": 69,
+                    "left": null,
+                    "right": null
+                }
+            },
+            "right": {
+                "char": null,
+                "freq": 145,
+                "left": {
+                    "char": "a",
+                    "freq": 70,
+                    "left": null,
+                    "right": null
+                },
+                "right": {
+                    "char": "i",
+                    "freq": 75,
+                    "left": null,
+                    "right": null
+                }
+            }
+        }
+    }
+}

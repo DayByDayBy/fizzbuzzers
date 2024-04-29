@@ -247,7 +247,6 @@ function SortingScreen() {
 
 
 
-
 // the settings tab isnt really necessary, but built it anyway for practice and because i prefer the symmetry 
 
 function SettingsScreen() {
