@@ -23,17 +23,17 @@ def build_huffman_tree(freq_dict):
             pair[1] = '0' + pair[1]
         for pair in hi[1:]:
             pair[1] = '1' + pair[1]
-        heapq.heappush(heap, [lo[0] + hi[0]] + lo[1:] + hi[1:])
+        heapq.heappush(heap, [lo[0] + hi[0], *lo[1:], *hi[1:]])
     return sorted(heapq.heappop(heap)[1:], key=lambda p: (len(p[-1]), p))
 
 def huffman_encode(input_filename, output_filename):
     text = read_file(input_filename)
     freq_dict = Counter(text)
-    codes = {sym: code for code, sym in build_huffman_tree(freq_dict)}
-    print(codes)
+    codes = {sym: code for sym, code in build_huffman_tree(freq_dict)}
+    # print(codes)
     encoded_text = [codes[char] for char in text]
     write_file(output_filename, encoded_text, codes)
 
 input_filename = '../lorem.txt'
-output_filename = 'encoded.txt'
+output_filename = 'python_huffman_encoded.txt'
 huffman_encode(input_filename, output_filename)
