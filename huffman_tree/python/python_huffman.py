@@ -57,10 +57,23 @@ def tree_to_dict(node):
         "left": tree_to_dict(node.left_node),
         "right": tree_to_dict(node.right_node)
     }
+    
+    
+def encode_text(text, huffman_tree):
+    encoding_map = {}
+    def traverse(node, code=""):
+        if node['char'] is not None:
+            encoding_map[node['char']] = code
+            return 
+        traverse(node['left'], code + '0')
+        traverse(node['right'], code + '1')
+    traverse(huffman_tree)
+    encoded_text = ''.join(encoding_map[char] for char in text)
+    return encoded_text
 
 
 
-with open('./lorem.txt', 'r') as file:
+with open('../lorem.txt', 'r') as file:
     text = file.read()
 huffman_tree_root = build_huffman_tree(text)
 
@@ -68,4 +81,8 @@ tree_dictionary = tree_to_dict(huffman_tree_root)
 
 with open("huffman_tree.json", "w") as file:
     json.dump(tree_dictionary, file, indent=4)
+encoded_text = encode_text(text, tree_dictionary)
+
+with open ("encoded_text.txt", "w") as file:
+    file.write(encoded_text)
 
