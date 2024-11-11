@@ -24,6 +24,7 @@ def build_huffman_tree(freq_dict):
         for pair in hi[1:]:
             pair[1] = '1' + pair[1]
         heapq.heappush(heap, [lo[0] + hi[0], *lo[1:], *hi[1:]])
+        print(sorted(heap))
     return sorted(heapq.heappop(heap)[1:], key=lambda p: (len(p[-1]), p))
 
 def huffman_encode(input_filename, output_filename):
